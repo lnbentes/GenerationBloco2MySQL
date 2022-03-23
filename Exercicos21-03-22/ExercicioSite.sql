@@ -55,10 +55,12 @@ INSERT INTO tb_categoria(categoria, marca, promocao) VALUES ("swift", "apple", f
 
 SELECT * FROM tb_categoria;
 
+SELECT * FROM tb_curso;
+
 CREATE TABLE tb_curso(
 	id BIGINT AUTO_INCREMENT,
     nome varchar(255),
-    tipo bigint,
+    tipo varchar(255),
     estoque boolean,
     quantidade int,
     preco int,
@@ -69,6 +71,8 @@ CREATE TABLE tb_curso(
     foreign key(categoria_id) references tb_categoria(id) -- Esse comando vai faz o link com a outra tabela
 );
 
+
+
 INSERT INTO tb_curso(nome, tipo, estoque, quantidade, preco, entrega, categoria_id) VALUES ("super mario", "plataforma", true, 250, 55, true, 1);
 INSERT INTO tb_curso(nome, tipo, estoque, quantidade, preco, entrega, categoria_id) VALUES ("finalfantase", "rpg", true, 500, 45, true, 2);
 INSERT INTO tb_curso(nome, tipo, estoque, quantidade, preco, entrega, categoria_id) VALUES ("assassins creed", "aventura", true, 500, 30, true, 2);
@@ -78,9 +82,11 @@ INSERT INTO tb_curso(nome, tipo, estoque, quantidade, preco, entrega, categoria_
 INSERT INTO tb_curso(nome, tipo, estoque, quantidade, preco, entrega, categoria_id) VALUES ("litter big planet", "terro", true, 22, 60, true, 4);
 INSERT INTO tb_curso(nome, tipo, estoque, quantidade, preco, entrega, categoria_id) VALUES ("kirby", "rpg", true, 22, 55, true, 3);
 
+SELECT * FROM tb_curso;
+
 SELECT * FROM tb_curso WHERE preco > 50;
 SELECT * FROM tb_curso WHERE preco >= 3 AND preco <= 60;
 SELECT * FROM tb_curso WHERE nome LIKE "%j%";
 
 SELECT * FROM tb_curso INNER JOIN tb_categoria ON tb_curso.categoria_id = tb_categoria.id;
-SELECT * FROM tb_curso INNER JOIN tb_categoria ON tb_curso.categoria_id = tb_categoria.id WHERE categoria LIKE "Pisos e revestimentos";
+SELECT * FROM tb_curso INNER JOIN tb_categoria ON tb_curso.categoria_id = tb_categoria.id WHERE categoria LIKE "java";
